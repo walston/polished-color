@@ -7,101 +7,90 @@
     <title>Color Layering</title>
   </head>
   <body>
-    <header>
-      <h1>Aa</h1>
-      <h2>Lorem ipsum dolor sit amet.</h2>
-      <p>
-        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Exercitationem
-        sapiente dolor reiciendis provident, ad non officiis porro blanditiis
-        ducimus deserunt sunt quisquam eaque! Ex minus rem beatae voluptatum
-        laboriosam voluptates?
-      </p>
-    </header>
-    <table id="color-table">
-      <tbody>
-        <tr>
-          <td id="lightest">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-        <tr>
-          <td id="lighter">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-        <tr>
-          <td id="light">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-        <tr>
-          <td id="pure">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-        <tr>
-          <td id="dark">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-        <tr>
-          <td id="darker">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-        <tr>
-          <td id="darkest">
-            <p class="rgb"></p>
-            <p class="hex"></p>
-          </td>
-        </tr>
-      </tbody>
-    </table>
-
+    <div class="column">
+      <div id="input">
+        <form>
+          <label>
+            Initial Color:
+            <input
+              id="base"
+              type="text"
+              value="#bada55"
+              pattern="^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$"
+          /></label>
+          <label
+            >Color shift function
+            <select id="function">
+              <option>tint</option>
+              <option>lighten</option>
+              <option>shade</option>
+              <option>darken</option>
+              <option>mix</option>
+            </select></label
+          >
+          <label id="mix-color-wrap">
+            Mix Color
+            <input
+              id="mix-color"
+              type="text"
+              value="#000000"
+              pattern="^#([a-fA-F0-9]{3}|[a-fA-F0-9]{6})$"
+            />
+          </label>
+          <label
+            >Amount: <code id="amount-display"></code>
+            <input id="amount" type="range" min="1" , max="99" value="10"
+          /></label>
+        </form>
+      </div>
+      <div class="divider">
+        <svg></svg>
+      </div>
+      <div id="output">
+        <p></p>
+        <pre></pre>
+      </div>
+    </div>
     <style type="text/css">
       * {
         box-sizing: border-box;
       }
-      html {
-        padding: 0;
-        margin: 0;
-      }
 
+      html,
       body {
-        min-height: 100vh;
-        min-width: 100vw;
-        font-family: sans-serif;
-        padding: 1rem;
         margin: 0;
+        padding: 0;
+        font-family: sans-serif;
+        font-size: 24px;
       }
 
-      header {
-        font-size: 2rem;
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 50vw;
-        padding-right: 1em;
+      .column {
+        display: flex;
+        flex-direction: column;
+        justify-content: stretch;
+        min-height: 100vh;
       }
 
-      header p {
+      form label {
+        display: block;
+        margin: 1em auto;
+        max-width: 18em;
+      }
+
+      form select,
+      form input {
+        display: block;
+        margin: 0.25em 0;
+        width: 100%;
         font-size: 1rem;
       }
 
-      #color-table {
-        min-width: 35vw;
-      }
-
-      #color-table td {
-        padding: 0.5em;
+      #output p,
+      #output pre {
+        max-width: 18em;
+        margin: 0 auto 1em;
+        text-align: center;
       }
     </style>
-    <script src="main.js"></script>
   </body>
 </html>
