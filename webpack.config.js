@@ -4,7 +4,7 @@ const HtmlPlugin = require("html-webpack-plugin");
 module.exports = {
   entry: { index: "./src/index.js" },
   output: {
-    path: path.join(__dirname, "dist"),
+    path: __dirname,
     filename: "[name].[hash].js"
   },
   mode: process.env.NODE_ENV === "production" ? "production" : "development",

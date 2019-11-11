@@ -4,8 +4,8 @@
   "description": "Layer 2 colors in UI with polished.js",
   "main": "index.js",
   "scripts": {
-    "prebuild": "rm -rf dist && NODE_ENV=production webpack",
-    "build": "serve dist",
+    "prebuild": "rm -rf index.html index*.js && NODE_ENV=production webpack",
+    "build": "serve .",
     "start": "webpack-dev-server"
   },
   "author": "Nathan Walston",
